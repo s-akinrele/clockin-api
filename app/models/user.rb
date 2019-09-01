@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   after_create :assign_default_role
 
+  has_many :attendances
+
   def assign_default_role
     self.add_role(:teacher) if self.roles.blank?
   end
