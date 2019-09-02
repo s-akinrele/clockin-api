@@ -3,17 +3,17 @@ class AttendancesController < ApplicationController
 
   def index
     attendances = current_user.attendances
-    json_response(attendances)
+    json_response({attendances: attendances})
   end
 
   def create
     attendance = current_user.attendances.create!(attendance_params)
-    json_response(attendance, :created)
+    json_response({attendance: attendance}, :created)
   end
 
   def update
     @attendance.update(attendance_params)
-    head :no_content
+    json_response({attendance: @attendance}, :accepted)
   end
 
   def destroy
