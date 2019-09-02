@@ -18,7 +18,7 @@ class AttendancesController < ApplicationController
 
   def destroy
     @attendance.destroy
-    head :no_content
+    json_response({message: Message.resource_deleted}, :ok)
   end
 
   private
