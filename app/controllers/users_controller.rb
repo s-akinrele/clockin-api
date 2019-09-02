@@ -33,6 +33,10 @@ class UsersController < ApplicationController
     head :no_content
   end
 
+  def fetch_current_user
+    json_response({user: current_user})
+  end
+
   private
 
     def user_params
